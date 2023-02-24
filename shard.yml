@@ -1,0 +1,12 @@
+name: chemystal
+version: 0.1.0
+
+authors:
+  - florianfmmartin <florian.fm.martin@gmail.com>
+
+description: |
+  A reflexive chemical abstract machine (RCHAM) based concurrency library inspired by join-calculus
+
+crystal: 1.7.2
+
+license: MIT
