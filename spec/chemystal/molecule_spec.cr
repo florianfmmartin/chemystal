@@ -6,7 +6,7 @@ include Chemystal
 basic_name = "basic"
 basic_value = nil
 
-basic_molecule = ->{ Molecule.new basic_name, basic_value }
+basic_molecule = ->{ m! basic_name, basic_value }
 
 describe Molecule do
   it "should create an object" do

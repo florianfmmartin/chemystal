@@ -10,4 +10,9 @@ module Chemystal
     def initialize(@name : String, @value : MoleculeValue)
     end
   end
+
+  # Make a molecule
+  def m!(name : String, value : MoleculeValue) : Molecule
+    return Molecule.new name, value
+  end
 end

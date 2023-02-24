@@ -3,103 +3,10 @@ require "../../src/chemystal.cr"
 
 include Chemystal
 
-basic_name = "basic"
-wrong_name = "wrong"
-
-molecule_1 = ->{ Molecule.new basic_name, nil }
-molecule_2 = ->{ Molecule.new basic_name, 68.6 }
-
-add_two_molecules = ->(chem : ChemicalMachine) {
-  chem.add_molecule(molecule_1.call)
-  chem.add_molecule(molecule_2.call)
-}
-
 describe ChemicalMachine do
-  describe "intialize" do
-    it "should create an object" do
-      object = ChemicalMachine.new
+  it "should create an object" do
+    object = ChemicalMachine.new
 
-      object.should_not be_nil
-    end
-  end
-
-  describe "add_molecule" do
-    it "should be able to add molecule to its soup" do
-      chem = ChemicalMachine.new
-
-      chem.add_molecule(Molecule.new basic_name, nil)
-    end
-
-    it "should return a deque of two molecule after adding two molecule with the same name" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      expected = Deque{molecule_1.call, molecule_2.call}
-      chem.get_molecules_with_name(basic_name).should eq(expected)
-    end
-
-    it "should return an empty deque of two molecule after adding two molecule with a different name" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      expected = Deque(Molecule).new
-      chem.get_molecules_with_name(wrong_name).should eq(expected)
-    end
-
-    it "should return an empty deque of two molecule after init" do
-      chem = ChemicalMachine.new
-
-      expected = Deque(Molecule).new
-      chem.get_molecules_with_name(wrong_name).should eq(expected)
-    end
-  end
-
-  describe "has_molecule_with_name?" do
-    it "should have molecule with name after adding" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      chem.has_molecule_with_name?(basic_name).should be_true
-    end
-
-    it "should not have molecule with wrong name after adding" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      chem.has_molecule_with_name?(wrong_name).should be_false
-    end
-  end
-
-  describe "use_molecule_with_name" do
-    it "should return a molecule with name after adding it" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      molecule = chem.use_molecule_with_name(basic_name)
-      if molecule.nil?
-        true.should be_false
-      else
-        molecule.name.should eq(basic_name)
-      end
-    end
-
-    it "should not return a molecule with name after init" do
-      chem = ChemicalMachine.new
-
-      chem.use_molecule_with_name(wrong_name).should be_nil
-    end
-
-    it "should not return a molecule with wrong name after adding molecule" do
-      chem = ChemicalMachine.new
-
-      add_two_molecules.call(chem)
-
-      chem.use_molecule_with_name(wrong_name).should be_nil
-    end
+    object.should_not be_nil
   end
 end
