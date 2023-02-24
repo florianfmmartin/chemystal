@@ -3,7 +3,7 @@ require "../../src/chemystal.cr"
 
 include Chemystal
 
-basic_name = :basic
+basic_name = "basic"
 basic_value = nil
 
 basic_molecule = ->{ Molecule.new basic_name, basic_value }

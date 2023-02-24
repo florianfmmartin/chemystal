@@ -3,8 +3,11 @@ require "../../src/chemystal.cr"
 
 include Chemystal
 
-molecule_1 = ->{ Molecule.new :basic, nil }
-molecule_2 = ->{ Molecule.new :basic, 68.6 }
+basic_name = "basic"
+wrong_name = "wrong"
+
+molecule_1 = ->{ Molecule.new basic_name, nil }
+molecule_2 = ->{ Molecule.new basic_name, 68.6 }
 
 add_two_molecules = ->(chem : ChemicalMachine) {
   chem.add_molecule(molecule_1.call)
@@ -24,7 +27,7 @@ describe ChemicalMachine do
     it "should be able to add molecule to its soup" do
       chem = ChemicalMachine.new
 
-      chem.add_molecule(Molecule.new :basic, nil)
+      chem.add_molecule(Molecule.new basic_name, nil)
     end
 
     it "should return a deque of two molecule after adding two molecule with the same name" do
@@ -33,7 +36,7 @@ describe ChemicalMachine do
       add_two_molecules.call(chem)
 
       expected = Deque{molecule_1.call, molecule_2.call}
-      chem.get_molecules_with_name(:basic).should eq(expected)
+      chem.get_molecules_with_name(basic_name).should eq(expected)
     end
 
     it "should return an empty deque of two molecule after adding two molecule with a different name" do
@@ -42,14 +45,14 @@ describe ChemicalMachine do
       add_two_molecules.call(chem)
 
       expected = Deque(Molecule).new
-      chem.get_molecules_with_name(:not_added).should eq(expected)
+      chem.get_molecules_with_name(wrong_name).should eq(expected)
     end
 
     it "should return an empty deque of two molecule after init" do
       chem = ChemicalMachine.new
 
       expected = Deque(Molecule).new
-      chem.get_molecules_with_name(:not_added).should eq(expected)
+      chem.get_molecules_with_name(wrong_name).should eq(expected)
     end
   end
 
@@ -59,7 +62,7 @@ describe ChemicalMachine do
 
       add_two_molecules.call(chem)
 
-      chem.has_molecule_with_name?(:basic).should be_true
+      chem.has_molecule_with_name?(basic_name).should be_true
     end
 
     it "should not have molecule with wrong name after adding" do
@@ -67,7 +70,7 @@ describe ChemicalMachine do
 
       add_two_molecules.call(chem)
 
-      chem.has_molecule_with_name?(:not_added).should be_false
+      chem.has_molecule_with_name?(wrong_name).should be_false
     end
   end
 
@@ -77,18 +80,18 @@ describe ChemicalMachine do
 
       add_two_molecules.call(chem)
 
-      molecule = chem.use_molecule_with_name(:basic)
+      molecule = chem.use_molecule_with_name(basic_name)
       if molecule.nil?
         true.should be_false
       else
-        molecule.name.should eq(:basic)
+        molecule.name.should eq(basic_name)
       end
     end
 
     it "should not return a molecule with name after init" do
       chem = ChemicalMachine.new
 
-      chem.use_molecule_with_name(:not_added).should be_nil
+      chem.use_molecule_with_name(wrong_name).should be_nil
     end
 
     it "should not return a molecule with wrong name after adding molecule" do
@@ -96,7 +99,7 @@ describe ChemicalMachine do
 
       add_two_molecules.call(chem)
 
-      chem.use_molecule_with_name(:not_added).should be_nil
+      chem.use_molecule_with_name(wrong_name).should be_nil
     end
   end
 end
