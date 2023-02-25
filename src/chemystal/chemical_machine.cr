@@ -25,6 +25,7 @@ module Chemystal
       return @molecule_soup
     end
 
+    # TODO: add reaction soup
     def run()
     end
   end
