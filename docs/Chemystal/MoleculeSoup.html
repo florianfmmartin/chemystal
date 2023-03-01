@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.6.2">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="chemystal">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="chemystal">
+  <title>Chemystal::MoleculeSoup - chemystal main-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          chemystal
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="chemystal/Chemystal" data-name="chemystal">
+      <a href="../Chemystal.html">Chemystal</a>
+      
+        <ul>
+  
+  <li class=" " data-id="chemystal/Chemystal/ChemicalMachine" data-name="chemystal::chemicalmachine">
+      <a href="../Chemystal/ChemicalMachine.html">ChemicalMachine</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/Molecule" data-name="chemystal::molecule">
+      <a href="../Chemystal/Molecule.html">Molecule</a>
+      
+    </li>
+  
+  <li class=" current" data-id="chemystal/Chemystal/MoleculeSoup" data-name="chemystal::moleculesoup">
+      <a href="../Chemystal/MoleculeSoup.html">MoleculeSoup</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/MoleculeValue" data-name="chemystal::moleculevalue">
+      <a href="../Chemystal/MoleculeValue.html">MoleculeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/Reaction" data-name="chemystal::reaction">
+      <a href="../Chemystal/Reaction.html">Reaction</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/ReactionCollection" data-name="chemystal::reactioncollection">
+      <a href="../Chemystal/ReactionCollection.html">ReactionCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/ReactionRequirement" data-name="chemystal::reactionrequirement">
+      <a href="../Chemystal/ReactionRequirement.html">ReactionRequirement</a>
+      
+    </li>
+  
+  <li class=" " data-id="chemystal/Chemystal/Spawner" data-name="chemystal::spawner">
+      <a href="../Chemystal/Spawner.html">Spawner</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Chemystal::MoleculeSoup
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Chemystal/MoleculeSoup.html">Chemystal::MoleculeSoup</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A Molecule Soup is a Hash from the molecules name
+to a deque of molecules having that same name</p>
+<p>The use of a deque is to have FIFO, such that no old molecules
+are left floating around in the soup</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      chemystal/chemical_machine/molecule_soup.cr
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add_molecule%28molecule%3AMolecule%29-instance-method" class="signature"><strong>#add_molecule</strong>(molecule : Molecule)</a>
+        
+          <div class="summary"><p>Adds a molecule to the soup</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_molecules_with_name%28name%3AString%29%3ADeque%28Molecule%29-instance-method" class="signature"><strong>#get_molecules_with_name</strong>(name : String) : Deque(Molecule)</a>
+        
+          <div class="summary"><p>Gets all molecules with the <em>name</em></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_molecule_with_name%28name%3AString%29%3ABool-instance-method" class="signature"><strong>#has_molecule_with_name</strong>(name : String) : Bool</a>
+        
+          <div class="summary"><p>Checks if at least one molecule with the <em>name</em> is in the soup</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#use_molecule_with_name%28name%3AString%29%3AMolecule%7CNil-instance-method" class="signature"><strong>#use_molecule_with_name</strong>(name : String) : Molecule | Nil</a>
+        
+          <div class="summary"><p>Consumes one molecule withe the <em>name</em>, returning it and removing it from the soup</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="add_molecule(molecule:Molecule)-instance-method">
+      <div class="signature">
+        
+        def <strong>add_molecule</strong>(molecule : <a href="../Chemystal/Molecule.html">Molecule</a>)
+
+        <a class="method-permalink" href="#add_molecule%28molecule%3AMolecule%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds a molecule to the soup</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_molecules_with_name(name:String):Deque(Molecule)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_molecules_with_name</strong>(name : String) : Deque(<a href="../Chemystal/Molecule.html">Molecule</a>)
+
+        <a class="method-permalink" href="#get_molecules_with_name%28name%3AString%29%3ADeque%28Molecule%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets all molecules with the <em>name</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_molecule_with_name(name:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_molecule_with_name</strong>(name : String) : Bool
+
+        <a class="method-permalink" href="#has_molecule_with_name%28name%3AString%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Checks if at least one molecule with the <em>name</em> is in the soup</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="use_molecule_with_name(name:String):Molecule|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>use_molecule_with_name</strong>(name : String) : <a href="../Chemystal/Molecule.html">Molecule</a> | Nil
+
+        <a class="method-permalink" href="#use_molecule_with_name%28name%3AString%29%3AMolecule%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Consumes one molecule withe the <em>name</em>, returning it and removing it from the soup</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
