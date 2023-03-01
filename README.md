@@ -20,7 +20,7 @@ A reflexive chemical abstract machine (RCHAM) based concurrency library inspired
 require "chemystal"
 ```
 
-[Documentation]()
+[Documentation](https://florianfmmartin.github.io/chemystal)
 
 ## Contributing
 
