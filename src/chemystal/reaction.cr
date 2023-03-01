@@ -10,4 +10,8 @@ module Chemystal
     def initialize(@requirements, @spawner, @proc)
     end
   end
+
+  def r!(requirements : Array(ReactionRequirement), spawner : Spawner, proc : Array(Molecule), Spawner -> Nil)
+    return Reaction.new requirements, spawner, proc
+  end
 end

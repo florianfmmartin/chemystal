@@ -11,9 +11,17 @@ module Chemystal
     # The molecule spawning channel
     @spawn_channel = Channel(Molecule).new
 
+    # The collection of reactions
+    @reaction_collection = Hash(String, Array(Reaction)).new
+
     # Sends a molecule on the spawning channel
     protected def spawn_molecule(molecule : Molecule)
       @spawn_channel.send molecule
+    end
+
+    # Returns the molecule soup
+    protected def get_molecule_soup
+      return @molecule_soup
     end
 
     # Adds a molecule to the soup
@@ -21,12 +29,13 @@ module Chemystal
       @molecule_soup.add_molecule molecule
     end
 
-    protected def get_molecule_soup()
-      return @molecule_soup
+    # Adds a reaction to the collection
+    def add_reaction(reaction : Reaction)
+      @reaction_collection.add_reaction reaction
     end
 
-    # TODO: add reaction soup
-    def run()
+    def run
+
     end
   end
 end
