@@ -1,6 +1,8 @@
+require "json"
+
 module Chemystal
-  # A Molecule can take all these values
-  alias MoleculeValue = Bool | Char | Float64 | Int64 | Nil | String | UInt64 | Hash(MoleculeValue, MoleculeValue)
+  # A Molecule can take any JSON like value
+  alias MoleculeValue = JSON::Any::Type
 
   # A Molecule is a labeled value, it is similar to a typed message
   # in message passing paradigms

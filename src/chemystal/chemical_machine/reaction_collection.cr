@@ -7,6 +7,10 @@ module Chemystal
   # for new reactions to occur
   class ReactionCollection
     @collection = Hash(String, Array(Reaction)).new
+    @list = Array(Reaction).new
+
+    def initialize(@spawner : Molecule -> Nil)
+    end
 
     # Adds a reaction to the collection under a certain name
     private def add_reaction_under_name(molecule_name : String, reaction : Reaction)
@@ -26,6 +30,17 @@ module Chemystal
     def add_reaction(reaction : Reaction)
       reaction.requirements.each do |requirement|
         add_reaction_under_name(requirement.name, reaction)
+      end
+    end
+
+    # Runs all reactions on startup, or
+    # none or one reaction if responding to a new molecule
+    def find_and_run_reaction(molecule_soup : MoleculeSoup, new_molecule_name : String?)
+      if new_molecule_name.is_nil?
+        @list.each { |reaction| reaction.update_soup_and_run_if_fulfilled(molecule_soup) }
+      else
+        get_reactions_requiring_molecule_with_name(new_molecule_name)
+          .each { |reaction| reaction.update_soup_and_run_if_fulfilled(molecule_soup) }
       end
     end
   end

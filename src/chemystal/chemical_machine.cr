@@ -8,15 +8,23 @@ module Chemystal
     # The soup of molecule
     @molecule_soup = MoleculeSoup.new
 
-    # The molecule spawning channel
-    @spawn_channel = Channel(Molecule).new
+    # Spawner of new molecules
+    @molecule_spawner : Molecule -> Nil
+
+    # Receiver of new molecules
+    @molecule_receiver : Proc(Molecule?)
 
     # The collection of reactions
-    @reaction_collection = Hash(String, Array(Reaction)).new
+    @reaction_collection : ReactionCollection
 
-    # Sends a molecule on the spawning channel
-    protected def spawn_molecule(molecule : Molecule)
-      @spawn_channel.send molecule
+    def initialize()
+      spawn_channel = Channel(Molecule).new
+      split_channel = channel_split_sender_receiver spawn_channel
+
+      @molecule_spawner = split_channel[:sender]
+      @molecule_receiver = split_channel[:receiver]
+
+      @reaction_collection = ReactionCollection.new @molecule_spawner
     end
 
     # Returns the molecule soup
@@ -34,8 +42,16 @@ module Chemystal
       @reaction_collection.add_reaction reaction
     end
 
+    # Runs the chemical machine
     def run
 
     end
+  end
+
+  def channel_split_sender_receiver(channel)
+    return {
+      sender: ->channel.send(Molecule),
+      receiver: ->channel.receive?
+    }
   end
 end
